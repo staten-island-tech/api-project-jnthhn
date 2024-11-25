@@ -3,7 +3,9 @@ import "./style.css";
 async function getData() {
   //fetch returns a promise
   try {
-    const response = await fetch("https://api.humorapi.com/jokes/random");
+    const response = await fetch(
+      "https://api.humorapi.com/jokes/random?api-key=7779914f394a493da077367a11fdd65f"
+    );
     //guard clause
     if (response.status != 200) {
       throw new Error(response);
