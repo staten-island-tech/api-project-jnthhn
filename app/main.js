@@ -1,21 +1,20 @@
 import "./style.css";
 
-async function getData() {
+const URL = "https://genshin.jmp.blue/characters";
+async function getData(URL) {
   //fetch returns a promise
   try {
-    const response = await fetch(
-      "https://api.humorapi.com/jokes/random?api-key=7779914f394a493da077367a11fdd65f"
-    );
+    const response = await fetch(URL);
     //guard clause
     if (response.status != 200) {
       throw new Error(response);
     } else {
       const data = await response.json();
-      document.querySelector("h1").textContent = data.name;
+      document.getElementById("api-response").textContent = data.content;
     }
   } catch (error) {
     console.log(error);
     alert("balls");
   }
 }
-getData();
+getData(URL);
