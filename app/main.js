@@ -2,19 +2,42 @@ import "./style.css";
 
 const URL = "https://genshin.jmp.blue/characters";
 async function getData(URL) {
-  //fetch returns a promise
   try {
     const response = await fetch(URL);
-    //guard clause
-    if (response.status != 200) {
-      throw new Error(response);
-    } else {
-      const data = await response.json();
-      document.getElementById("api-response").textContent = data.content;
-    }
+    const data = await response.json();
+    console.log(data);
+    data.forEach((character) => {
+      getCharacterDetails(character);
+    });
   } catch (error) {
     console.log(error);
-    alert("balls");
   }
+}
+async function getCharacterDetails(characterName) {
+  try {
+    const response = await fetch(
+      `https://genshin.jmp.blue/characters/${characterName}`
+    );
+    const characterData = await response.json();
+    console.log(characterData); // Logs the detailed character data
+    addCharacterCard(characterData);
+    // Now, add the character data to the page
+  } catch (error) {
+    console.log(error);
+  }
+}
+function addCharacterCard(characterData) {
+  const cardHTML = `
+      <h4>${characterData.name}</h4>
+      <p>${characterData.title}</p>
+      <p>Vision: ${characterData.vision}</p>
+      <p>Weapon: ${characterData.weapon}</p>
+    </div>
+  `;
+
+  // Assuming you have a container with class `container` in your HTML
+  document
+    .querySelector(".container")
+    .insertAdjacentHTML("beforeend", cardHTML);
 }
 getData(URL);
