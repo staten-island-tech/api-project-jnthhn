@@ -29,6 +29,7 @@ async function getCharacterDetails(characterName) {
 function addCharacterCard(characterData) {
   const cardHTML = `
       <h4>${characterData.name}</h4>
+      <img src="https://genshin.jmp.blue/characters/${characterData.name}/icon" alt="${characterData.name}">
       <p>${characterData.title}</p>
       <p>Vision: ${characterData.vision}</p>
       <p>Weapon: ${characterData.weapon}</p>
