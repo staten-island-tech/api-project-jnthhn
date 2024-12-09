@@ -4,11 +4,34 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Genshin API Generator</title>
   </head>
-  <body>
-    <script type="module" src="/main.js"></script>
-    <div class="container" space-y-4></div>
-    
+  <body class="bg-gray-100 text-gray-900 font-sans">
+    <header class="text-center py-8">
+      <h1 class="text-4xl font-semibold text-indigo-600">Genshin API Generator</h1>
+      <p class="text-lg text-gray-700 mt-2">Click the button below to generate characters from Genshin Impact!</p>
+    </header>
+
+    <div class="text-center mb-8">
+      <button
+        id="character-button"
+        class="bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        Generate Characters
+      </button>
+    </div>
+    <div class="text-center mb-8">
+      <button
+        id="boss-button"
+        class="bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        Generate Bosses
+      </button>
+    </div>
+
+    <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8" id="card-container">
+    </div>
+
+    <script type="module" src="JS/main.js"></script>
   </body>
 </html>
